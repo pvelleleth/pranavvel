@@ -80,6 +80,17 @@
     .read-thoughts:hover {
       border-color: #0073e6;
     }
+    .subtle-link {
+  color: #555;              /* Dark gray */
+  text-decoration: none;    /* No underline */
+  border-bottom: 1px dotted #aaa; /* Dotted underline for subtle hint */
+  transition: color 0.2s ease;
+}
+
+.subtle-link:hover {
+  color: #0073e6;           /* Light blue on hover */
+  border-bottom-color: #0073e6;
+}
   </style>
 </head>
 <body>
@@ -89,8 +100,8 @@
     <h3>About Me</h3>
     <hr>
     <p>I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland. </p>
-    <p><br>I've built Jirachat.com and CuratePDF.com</p>
-    <p><br>Currently, I'm building Kollengo.com, a platform powered by CuratePDF's document engine.</p>
+    <p><br>I've built <a href="https://jirachat.com" class="subtle-link">Jirachat.com</a> and <a href="https://curatepdf.com" class="subtle-link">CuratePDF.com</a></p>
+    <p><br>Currently, I'm building <a href="https://kollengo.com" class="subtle-link">Kollengo.com</a>, a platform powered by CuratePDF's document engine.</p>
     <hr>
     <div class="icons">
       <a href="https://github.com/pvelleleth" aria-label="GitHub">
