@@ -81,6 +81,30 @@
       gap: 12px;
     }
     
+    .workspace-indicator {
+      display: flex;
+      gap: 4px;
+      margin-right: 8px;
+    }
+    
+    .workspace {
+      width: 20px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    
+    .workspace.active {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    .workspace:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+    
     .system-indicator {
       padding: 4px 8px;
       border-radius: 4px;
@@ -88,8 +112,132 @@
       transition: background 0.2s;
     }
     
-    .system-indicator:hover {
-      background: rgba(255, 255, 255, 0.1);
+    /* Activities Overview */
+    .overview {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 2000;
+      display: none;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .overview.active {
+      display: flex;
+      opacity: 1;
+      flex-direction: column;
+    }
+    
+    .overview-search {
+      margin: 80px auto 40px;
+      width: 400px;
+      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      border: none;
+      font-size: 16px;
+      outline: none;
+      color: #333;
+    }
+    
+    .overview-content {
+      flex: 1;
+      display: flex;
+      padding: 0 40px;
+      gap: 40px;
+    }
+    
+    .windows-overview {
+      flex: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      height: fit-content;
+    }
+    
+    .window-preview {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      color: #333;
+    }
+    
+    .window-preview:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 1);
+    }
+    
+    .app-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      height: fit-content;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    
+    .app-icon {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #333;
+    }
+    
+    .app-icon:hover {
+      transform: scale(1.1);
+      background: rgba(255, 255, 255, 1);
+    }
+    
+    .app-icon-image {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    .app-icon-name {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .workspace-sidebar {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .workspace-preview {
+      width: 120px;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+      border: 2px solid transparent;
+    }
+    
+    .workspace-preview.active {
+      border-color: #e95420;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .workspace-preview:hover {
+      background: rgba(255, 255, 255, 0.4);
     }
     
     /* Window styling */
@@ -156,9 +304,105 @@
       color: #ffffff;
     }
     
-    .window-control:hover {
-      opacity: 0.8;
-      transform: scale(1.1);
+    /* System Settings Panel */
+    .settings-panel {
+      width: 800px;
+      height: 600px;
+      top: 60px;
+      left: 100px;
+    }
+    
+    .settings-body {
+      background: #ffffff;
+      height: calc(100% - 40px);
+      display: flex;
+    }
+    
+    .settings-sidebar {
+      width: 250px;
+      background: #f8f8f8;
+      border-right: 1px solid #e0e0e0;
+      padding: 0;
+    }
+    
+    .settings-category {
+      padding: 12px 20px;
+      cursor: pointer;
+      color: #333;
+      transition: all 0.2s;
+      font-size: 14px;
+      border-bottom: 1px solid #e8e8e8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .settings-category:hover {
+      background: #e8e8e8;
+    }
+    
+    .settings-category.active {
+      background: #e95420;
+      color: white;
+    }
+    
+    .settings-content {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    
+    .settings-section {
+      margin-bottom: 32px;
+    }
+    
+    .settings-section h3 {
+      color: #333;
+      margin: 0 0 16px 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .settings-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .settings-item:last-child {
+      border-bottom: none;
+    }
+    
+    .settings-toggle {
+      width: 40px;
+      height: 20px;
+      background: #ccc;
+      border-radius: 10px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .settings-toggle.active {
+      background: #e95420;
+    }
+    
+    .settings-toggle::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: all 0.2s;
+    }
+    
+    .settings-toggle.active::after {
+      left: 22px;
     }
     
     .window-title {
@@ -534,16 +778,23 @@
   <!-- GNOME Top Bar -->
   <div class="top-bar">
     <div class="top-bar-left">
-      <div class="activities">Activities</div>
+      <div class="activities" onclick="toggleOverview()">Activities</div>
     </div>
     <div class="top-bar-center">
       <span id="current-time"></span>
     </div>
     <div class="top-bar-right">
-      <div class="system-indicator">🔊</div>
-      <div class="system-indicator">📶</div>
-      <div class="system-indicator">🔋</div>
-      <div class="system-indicator">👤</div>
+      <div class="workspace-indicator">
+        <div class="workspace active" onclick="switchWorkspace(1)" data-workspace="1"></div>
+        <div class="workspace" onclick="switchWorkspace(2)" data-workspace="2"></div>
+        <div class="workspace" onclick="switchWorkspace(3)" data-workspace="3"></div>
+        <div class="workspace" onclick="switchWorkspace(4)" data-workspace="4"></div>
+      </div>
+      <div class="system-indicator" onclick="showWindow('settings-panel')" title="Settings">⚙️</div>
+      <div class="system-indicator" title="Volume">🔊</div>
+      <div class="system-indicator" title="Network">📶</div>
+      <div class="system-indicator" title="Battery">🔋</div>
+      <div class="system-indicator" title="User">👤</div>
     </div>
   </div>
   
@@ -711,14 +962,148 @@
     </div>
   </div>
   
-  <!-- Dock -->
-  <div class="dock">
+  <!-- Activities Overview -->
+  <div class="overview" id="overview">
+    <input type="text" class="overview-search" placeholder="Type to search..." id="search-input">
+    <div class="overview-content">
+      <div class="windows-overview">
+        <div class="window-preview" onclick="focusWindow('terminal'); closeOverview()">
+          <h4>Terminal</h4>
+          <p>pranav@ubuntu: ~</p>
+        </div>
+        <div class="window-preview" onclick="focusWindow('file-manager'); closeOverview()">
+          <h4>Files</h4>
+          <p>Home > pranav</p>
+        </div>
+        <div class="window-preview" onclick="focusWindow('text-editor'); closeOverview()">
+          <h4>Text Editor</h4>
+          <p>projects.md</p>
+        </div>
+      </div>
+      <div class="app-grid">
+        <div class="app-icon" onclick="showWindow('terminal'); closeOverview()">
+          <div class="app-icon-image">💻</div>
+          <div class="app-icon-name">Terminal</div>
+        </div>
+        <div class="app-icon" onclick="showWindow('file-manager'); closeOverview()">
+          <div class="app-icon-image">📁</div>
+          <div class="app-icon-name">Files</div>
+        </div>
+        <div class="app-icon" onclick="showWindow('text-editor'); closeOverview()">
+          <div class="app-icon-image">📝</div>
+          <div class="app-icon-name">Text Editor</div>
+        </div>
+        <div class="app-icon" onclick="showWindow('settings-panel'); closeOverview()">
+          <div class="app-icon-image">⚙️</div>
+          <div class="app-icon-name">Settings</div>
+        </div>
+        <div class="app-icon" onclick="showNotification('Firefox', 'Opening web browser...'); closeOverview()">
+          <div class="app-icon-image">🌐</div>
+          <div class="app-icon-name">Firefox</div>
+        </div>
+        <div class="app-icon">
+          <div class="app-icon-image">📦</div>
+          <div class="app-icon-name">Software</div>
+        </div>
+        <div class="app-icon">
+          <div class="app-icon-image">📊</div>
+          <div class="app-icon-name">System Monitor</div>
+        </div>
+        <div class="app-icon">
+          <div class="app-icon-image">📄</div>
+          <div class="app-icon-name">LibreOffice</div>
+        </div>
+        <div class="app-icon">
+          <div class="app-icon-image">🎨</div>
+          <div class="app-icon-name">GIMP</div>
+        </div>
+      </div>
+    </div>
+    <div class="workspace-sidebar">
+      <div class="workspace-preview active" onclick="switchWorkspace(1); closeOverview()" data-workspace="1"></div>
+      <div class="workspace-preview" onclick="switchWorkspace(2); closeOverview()" data-workspace="2"></div>
+      <div class="workspace-preview" onclick="switchWorkspace(3); closeOverview()" data-workspace="3"></div>
+      <div class="workspace-preview" onclick="switchWorkspace(4); closeOverview()" data-workspace="4"></div>
+    </div>
+  </div>
+  
+  <!-- System Settings Panel -->
+  <div class="window settings-panel" id="settings-panel" style="display: none;">
+    <div class="window-header">
+      <div class="window-controls">
+        <div class="window-control close" onclick="hideWindow('settings-panel')">×</div>
+        <div class="window-control minimize" onclick="minimizeWindow('settings-panel')">−</div>
+        <div class="window-control maximize" onclick="maximizeWindow('settings-panel')">□</div>
+      </div>
+      <div class="window-title">Settings</div>
+    </div>
+    <div class="settings-body">
+      <div class="settings-sidebar">
+        <div class="settings-category active" onclick="showSettingsCategory('display')">
+          <span>🖥️</span>
+          <span>Display</span>
+        </div>
+        <div class="settings-category" onclick="showSettingsCategory('network')">
+          <span>🌐</span>
+          <span>Network</span>
+        </div>
+        <div class="settings-category" onclick="showSettingsCategory('sound')">
+          <span>🔊</span>
+          <span>Sound</span>
+        </div>
+        <div class="settings-category" onclick="showSettingsCategory('power')">
+          <span>🔋</span>
+          <span>Power</span>
+        </div>
+        <div class="settings-category" onclick="showSettingsCategory('privacy')">
+          <span>🔒</span>
+          <span>Privacy</span>
+        </div>
+        <div class="settings-category" onclick="showSettingsCategory('users')">
+          <span>👤</span>
+          <span>Users</span>
+        </div>
+        <div class="settings-category" onclick="showSettingsCategory('about')">
+          <span>ℹ️</span>
+          <span>About</span>
+        </div>
+      </div>
+      <div class="settings-content" id="settings-content">
+        <div class="settings-section">
+          <h3>Display Settings</h3>
+          <div class="settings-item">
+            <span>Resolution</span>
+            <span>1920 x 1080</span>
+          </div>
+          <div class="settings-item">
+            <span>Night Light</span>
+            <div class="settings-toggle" onclick="toggleSetting(this)"></div>
+          </div>
+          <div class="settings-item">
+            <span>Fractional Scaling</span>
+            <div class="settings-toggle active" onclick="toggleSetting(this)"></div>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3>Appearance</h3>
+          <div class="settings-item">
+            <span>Dark Theme</span>
+            <div class="settings-toggle" onclick="toggleSetting(this)"></div>
+          </div>
+          <div class="settings-item">
+            <span>Show Desktop Icons</span>
+            <div class="settings-toggle active" onclick="toggleSetting(this)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="dock-item active" onclick="showWindow('terminal')" title="Terminal">💻</div>
     <div class="dock-item" onclick="showWindow('file-manager')" title="Files">📁</div>
     <div class="dock-item" onclick="showWindow('text-editor')" title="Text Editor">📝</div>
     <div class="dock-item" onclick="openBrowser()" title="Firefox">🌐</div>
-    <div class="dock-item" title="Settings">⚙️</div>
-    <div class="dock-item" title="Software">📦</div>
+    <div class="dock-item" onclick="showWindow('settings-panel')" title="Settings">⚙️</div>
+    <div class="dock-item" onclick="toggleOverview()" title="Show Applications">📦</div>
   </div>
   
   <script>
@@ -888,15 +1273,249 @@
     }
     
     // Activities overview (simplified)
-    document.querySelector('.activities').addEventListener('click', function() {
-      showNotification('Activities', 'Overview coming soon!');
+    function toggleOverview() {
+      const overview = document.getElementById('overview');
+      overview.classList.toggle('active');
+      
+      if (overview.classList.contains('active')) {
+        document.getElementById('search-input').focus();
+        showNotification('Activities', 'Overview opened');
+      }
+    }
+    
+    function closeOverview() {
+      const overview = document.getElementById('overview');
+      overview.classList.remove('active');
+    }
+    
+    // Workspace switching
+    let currentWorkspace = 1;
+    
+    function switchWorkspace(workspaceNum) {
+      // Update workspace indicators in top bar
+      document.querySelectorAll('.workspace').forEach(ws => {
+        ws.classList.remove('active');
+      });
+      document.querySelector(`.workspace[data-workspace="${workspaceNum}"]`).classList.add('active');
+      
+      // Update workspace previews in overview
+      document.querySelectorAll('.workspace-preview').forEach(ws => {
+        ws.classList.remove('active');
+      });
+      document.querySelector(`.workspace-preview[data-workspace="${workspaceNum}"]`).classList.add('active');
+      
+      // Hide all windows and show only ones for current workspace
+      document.querySelectorAll('.window').forEach(window => {
+        const windowWorkspace = window.dataset.workspace || '1';
+        if (windowWorkspace === workspaceNum.toString()) {
+          window.style.display = 'block';
+        } else {
+          window.style.display = 'none';
+        }
+      });
+      
+      currentWorkspace = workspaceNum;
+      showNotification('Workspace', `Switched to workspace ${workspaceNum}`);
+    }
+    
+    // Settings panel functionality
+    function showSettingsCategory(category) {
+      // Update active category
+      document.querySelectorAll('.settings-category').forEach(cat => {
+        cat.classList.remove('active');
+      });
+      event.target.closest('.settings-category').classList.add('active');
+      
+      // Update content based on category
+      const content = document.getElementById('settings-content');
+      let html = '';
+      
+      switch(category) {
+        case 'display':
+          html = `
+            <div class="settings-section">
+              <h3>Display Settings</h3>
+              <div class="settings-item">
+                <span>Resolution</span>
+                <span>1920 x 1080</span>
+              </div>
+              <div class="settings-item">
+                <span>Night Light</span>
+                <div class="settings-toggle" onclick="toggleSetting(this)"></div>
+              </div>
+              <div class="settings-item">
+                <span>Fractional Scaling</span>
+                <div class="settings-toggle active" onclick="toggleSetting(this)"></div>
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Appearance</h3>
+              <div class="settings-item">
+                <span>Dark Theme</span>
+                <div class="settings-toggle" onclick="toggleSetting(this)"></div>
+              </div>
+              <div class="settings-item">
+                <span>Show Desktop Icons</span>
+                <div class="settings-toggle active" onclick="toggleSetting(this)"></div>
+              </div>
+            </div>
+          `;
+          break;
+        case 'network':
+          html = `
+            <div class="settings-section">
+              <h3>Wi-Fi</h3>
+              <div class="settings-item">
+                <span>Wi-Fi</span>
+                <div class="settings-toggle active" onclick="toggleSetting(this)"></div>
+              </div>
+              <div class="settings-item">
+                <span>Connected to: Ubuntu-WiFi</span>
+                <span>🟢 Connected</span>
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Bluetooth</h3>
+              <div class="settings-item">
+                <span>Bluetooth</span>
+                <div class="settings-toggle active" onclick="toggleSetting(this)"></div>
+              </div>
+            </div>
+          `;
+          break;
+        case 'sound':
+          html = `
+            <div class="settings-section">
+              <h3>Output</h3>
+              <div class="settings-item">
+                <span>Output Device</span>
+                <span>Built-in Audio</span>
+              </div>
+              <div class="settings-item">
+                <span>Output Volume</span>
+                <span>75%</span>
+              </div>
+            </div>
+            <div class="settings-section">
+              <h3>Input</h3>
+              <div class="settings-item">
+                <span>Input Device</span>
+                <span>Built-in Microphone</span>
+              </div>
+            </div>
+          `;
+          break;
+        case 'about':
+          html = `
+            <div class="settings-section">
+              <h3>System Information</h3>
+              <div class="settings-item">
+                <span>OS Name</span>
+                <span>Ubuntu 22.04.3 LTS</span>
+              </div>
+              <div class="settings-item">
+                <span>GNOME Version</span>
+                <span>42.9</span>
+              </div>
+              <div class="settings-item">
+                <span>Kernel</span>
+                <span>5.19.0-46-generic</span>
+              </div>
+              <div class="settings-item">
+                <span>Memory</span>
+                <span>16.0 GB</span>
+              </div>
+              <div class="settings-item">
+                <span>Processor</span>
+                <span>Intel Core i7-12700H × 20</span>
+              </div>
+              <div class="settings-item">
+                <span>Graphics</span>
+                <span>NVIDIA GeForce RTX 3070</span>
+              </div>
+            </div>
+          `;
+          break;
+        default:
+          html = `
+            <div class="settings-section">
+              <h3>${category.charAt(0).toUpperCase() + category.slice(1)} Settings</h3>
+              <div class="settings-item">
+                <span>Settings for ${category}</span>
+                <span>Coming soon...</span>
+              </div>
+            </div>
+          `;
+      }
+      
+      content.innerHTML = html;
+    }
+    
+    function toggleSetting(toggle) {
+      toggle.classList.toggle('active');
+      showNotification('Settings', 'Setting updated');
+    }
+    
+    // Search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+          const searchTerm = e.target.value.toLowerCase();
+          const appIcons = document.querySelectorAll('.app-icon');
+          
+          appIcons.forEach(icon => {
+            const appName = icon.querySelector('.app-icon-name').textContent.toLowerCase();
+            if (appName.includes(searchTerm)) {
+              icon.style.display = 'block';
+            } else {
+              icon.style.display = searchTerm === '' ? 'block' : 'none';
+            }
+          });
+        });
+      }
     });
     
-    // System indicators
-    document.querySelectorAll('.system-indicator').forEach(indicator => {
-      indicator.addEventListener('click', function() {
-        showNotification('System', 'Settings panel coming soon!');
-      });
+    // Close overview when clicking outside
+    document.addEventListener('click', function(e) {
+      const overview = document.getElementById('overview');
+      if (overview && overview.classList.contains('active') && 
+          !e.target.closest('.overview') && 
+          !e.target.closest('.activities')) {
+        closeOverview();
+      }
+    });
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Super key for Activities (using Alt as substitute)
+      if (e.altKey && e.code === 'F1') {
+        e.preventDefault();
+        toggleOverview();
+      }
+      
+      // Ctrl+Alt+Arrow for workspace switching
+      if (e.ctrlKey && e.altKey) {
+        if (e.code === 'ArrowRight' && currentWorkspace < 4) {
+          e.preventDefault();
+          switchWorkspace(currentWorkspace + 1);
+        } else if (e.code === 'ArrowLeft' && currentWorkspace > 1) {
+          e.preventDefault();
+          switchWorkspace(currentWorkspace - 1);
+        }
+      }
+      
+      // Escape to close overview
+      if (e.code === 'Escape') {
+        closeOverview();
+      }
+    });
+    
+    // Initialize with workspace data
+    document.querySelectorAll('.window').forEach(window => {
+      if (!window.dataset.workspace) {
+        window.dataset.workspace = '1';
+      }
     });
   </script>
 </body>
