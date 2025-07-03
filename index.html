@@ -315,7 +315,7 @@
       const terminalHeader = document.querySelector('.terminal-header');
       const terminalBody = document.querySelector('.terminal-body');
       
-      // Center the terminal window initially
+      // Position the terminal window higher on the screen
       function centerWindow() {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
@@ -323,7 +323,7 @@
         const terminalHeight = terminalWindow.offsetHeight;
         
         const left = (windowWidth - terminalWidth) / 2;
-        const top = (windowHeight - terminalHeight) / 2;
+        const top = Math.max(40, (windowHeight - terminalHeight) / 7); // Position at 1/3 from top, minimum 40px
         
         terminalWindow.style.left = left + 'px';
         terminalWindow.style.top = top + 'px';
