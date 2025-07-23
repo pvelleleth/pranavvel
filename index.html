@@ -4,458 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pranav Velleleth</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> <!-- Add Font Awesome -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=SF+Mono:wght@400;500&display=swap');
-    
     * {
       box-sizing: border-box;
     }
     
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
-      background: #f0f0f0;
-      color: #000;
+      padding: 40px 20px;
+      font-family: 'Times New Roman', Times, serif;
+      background: #f8f8f8; /* Changed from #e0e0e0 to #f8f8f8 for a white-gray */
+      color: #333333;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+      line-height: 1.6;
     }
     
-    /* Light theme background pattern */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, 0.3) 100%),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 2px,
-          rgba(0, 0, 0, 0.02) 2px,
-          rgba(0, 0, 0, 0.02) 4px
-        );
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    /* Terminal window */
-    .terminal-window {
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
-      width: 90%;
+    .container {
       max-width: 800px;
-      overflow: hidden;
-      position: absolute;
-      z-index: 2;
-      transition: box-shadow 0.2s ease;
-    }
-    
-    .terminal-window.dragging {
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 2px rgba(0, 0, 0, 0.3);
-      cursor: grabbing;
-    }
-    
-    /* Terminal header */
-    .terminal-header {
-      background: #f6f6f6;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #e0e0e0;
-      cursor: grab;
-      user-select: none;
-    }
-    
-    .terminal-header:active {
-      cursor: grabbing;
-    }
-    
-    /* Traffic lights */
-    .traffic-lights {
-      display: flex;
-      gap: 8px;
-    }
-    
-    .traffic-light {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    
-    .traffic-light:hover {
-      opacity: 0.8;
-    }
-    
-    .traffic-light.red { background: #ff5f57; }
-    .traffic-light.yellow { background: #ffbd2e; }
-    .traffic-light.green { background: #28ca42; }
-    
-    .terminal-title {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #666;
-      font-size: 12px;
-      font-weight: 500;
-    }
-    
-    /* Terminal body */
-    .terminal-body {
-      padding: 16px 20px;
-      background: #fafafa;
-      font-size: 13px;
-      line-height: 1.4;
-    }
-    
-    /* Terminal content */
-    .terminal-line {
-      margin: 6px 0;
-      display: flex;
-      align-items: flex-start;
-    }
-    
-    .prompt {
-      color: #007AFF;
-      margin-right: 8px;
-      user-select: none;
-      font-weight: 500;
-    }
-    
-    .command {
-      color: #000;
-      font-weight: 500;
-    }
-    
-    .output {
-      color: #333;
-      margin: 8px 0 12px 0;
-      display: block;
-      width: 100%;
-    }
-    
-    .compact-output {
-      margin: 4px 0 8px 0;
+      margin: 0 auto;
     }
     
     h1 {
-      color: #000;
-      font-size: 1.4rem;
-      margin: 8px 0 4px 0;
-      font-weight: 600;
+      color: #000000;
+      font-size: 2.5rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: normal;
     }
     
-    h2 {
-      color: #666;
-      font-size: 0.9rem;
-      margin: 4px 0 12px 0;
-      font-weight: 400;
+    .subtitle {
+      color: #666666;
+      font-size: 1.2rem;
+      margin: 0 0 2rem 0;
+      font-style: italic;
+    }
+    
+    .section {
+      margin: 2rem 0;
+    }
+    
+    .section-title {
+      color: #000000;
+      font-size: 1.5rem;
+      margin: 0 0 1rem 0;
+      font-weight: bold;
     }
     
     .about-text {
-      color: #333;
-      margin: 4px 0;
-      line-height: 1.5;
+      color: #333333;
+      font-size: 1.1rem;
+      margin: 0 0 1rem 0;
+      line-height: 1.7;
     }
     
-    .project-line {
-      color: #555;
-      margin: 2px 0;
-      padding-left: 20px;
+    .projects {
+      margin: 1rem 0;
+    }
+    
+    .project-item {
+      color: #333333;
+      margin: 0.75rem 0;
+      font-size: 1.1rem;
     }
     
     .link {
-      color: #007AFF;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: all 0.2s;
+      color: #0066cc;
+      text-decoration: underline;
+      transition: color 0.2s;
     }
     
     .link:hover {
-      border-bottom-color: #007AFF;
+      color: #004499;
     }
     
     .social-links {
-      margin: 12px 0;
+      margin: 1.5rem 0;
       display: flex;
-      gap: 16px;
-      align-items: center;
+      gap: 2rem;
       flex-wrap: wrap;
     }
     
     .social-link {
-      color: #007AFF;
+      color: #0066cc;
       text-decoration: none;
-      padding: 3px 8px;
-      border: 1px solid #007AFF;
-      border-radius: 3px;
+      font-size: 1.5rem; /* Increase icon size */
+      border-bottom: 1px solid transparent;
       transition: all 0.2s;
-      display: inline-block;
-      font-size: 12px;
     }
     
     .social-link:hover {
-      background: #007AFF;
-      color: #fff;
-    }
-    
-    /* Cursor animation */
-    .cursor {
-      display: inline-block;
-      width: 8px;
-      height: 16px;
-      background: #007AFF;
-      animation: blink 1s infinite;
-      margin-left: 4px;
-      vertical-align: text-bottom;
-    }
-    
-    @keyframes blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0; }
+      border-bottom-color: #0066cc;
     }
     
     /* Mobile responsiveness */
     @media (max-width: 768px) {
-      .terminal-window {
-        width: 95%;
-      }
-      
-      .terminal-body {
-        padding: 12px 16px;
-        font-size: 12px;
+      body {
+        padding: 20px 15px;
       }
       
       h1 {
-        font-size: 1.2rem;
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+      
+      .about-text,
+      .project-item,
+      .social-link {
+        font-size: 1rem;
       }
       
       .social-links {
-        gap: 10px;
-      }
-      
-      .social-link {
-        font-size: 11px;
-        padding: 2px 6px;
+        gap: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="terminal-window">
-    <div class="terminal-header">
-      <div class="traffic-lights">
-        <div class="traffic-light red"></div>
-        <div class="traffic-light yellow"></div>
-        <div class="traffic-light green"></div>
-      </div>
-      <div class="terminal-title">pranav@macbook ~ %</div>
+  <div class="container">
+    <h1>Pranav Velleleth</h1>
+    <div class="subtitle">AI Engineer | I build great products</div>
+    
+    <div class="section">
+      <div class="section-title">About</div>
+      <div class="about-text">I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland.</div>
+      <div class="about-text">Recently, I've been contracting software work for startups and small businesses and have been building software solutions to problems I have a vested interest in.<div>
     </div>
-    <div class="terminal-body">
-      <div class="terminal-line">
-        <span class="prompt">%</span>
-        <span class="command">whoami</span>
+    
+    <div class="section">
+      <div class="section-title">Projects</div>
+      <div class="projects">
+        <ul>
+          <li class="project-item"><a href="https://jirachat.com" class="link">Jirachat.com</a>: A chatbot for querying Jira.</li>
+          <li class="project-item"><a href="https://curatepdf.com" class="link">CuratePDF.com</a>: A tool to automate document workflows with a simple API and drag & drop editor.</li>
+          <li class="project-item"><a href="https://kollengo.com" class="link">Kollengo.com</a>: <i>(In progress)</i> A contract engine that eliminates the bottleneck between Sales, Legal, and Digital.</li>
+        </ul>
       </div>
-      <div class="output compact-output">
-        <h1>Pranav Velleleth</h1>
-        <h2>AI Engineer | I build great products</h2>
-      </div>
-      
-      <div class="terminal-line">
-        <span class="prompt">%</span>
-        <span class="command">cat about.txt</span>
-      </div>
-      <div class="output compact-output">
-        <div class="about-text">I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland.</div>
-      </div>
-      
-      <div class="terminal-line">
-        <span class="prompt">%</span>
-        <span class="command">ls -1 ~/projects/</span>
-      </div>
-      <div class="output compact-output">
-        <div class="project-line">• Built: <a href="https://jirachat.com" class="link">Jirachat.com</a> and <a href="https://curatepdf.com" class="link">CuratePDF.com</a></div>
-        <div class="project-line">• Building: <a href="https://kollengo.com" class="link">Kollengo.com</a> - powered by CuratePDF's document engine</div>
-      </div>
-      
-      <div class="terminal-line">
-        <span class="prompt">%</span>
-        <span class="command">open -a "Social Links"</span>
-      </div>
-      <div class="output compact-output">
-        <div class="social-links">
-          <a href="https://github.com/pvelleleth" class="social-link">GitHub</a>
-          <a href="https://www.linkedin.com/in/pranav-velleleth-a899b6247/" class="social-link">LinkedIn</a>
-          <a href="https://x.com/pranav_vell" class="social-link">X/Twitter</a>
-          <a href="./blog.html" class="social-link">Blog</a>
-        </div>
-      </div>
-      
-      <div class="terminal-line">
-        <span class="prompt">%</span>
-        <span class="cursor"></span>
+    </div>
+    
+    <div class="section">
+      <div class="section-title">Links</div>
+      <div class="social-links">
+        <a href="https://github.com/pvelleleth" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pranav-velleleth-a899b6247/" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="https://x.com/pranav_vell" class="social-link"><i class="fab fa-x-twitter"></i></a>
+        <a href="./thoughts.html" class="social-link"><i class="fas fa-blog"></i></a>
       </div>
     </div>
   </div>
-  
-  <script>
-    // Add some interactive terminal effects
-    document.addEventListener('DOMContentLoaded', function() {
-      const terminalWindow = document.querySelector('.terminal-window');
-      const terminalHeader = document.querySelector('.terminal-header');
-      const terminalBody = document.querySelector('.terminal-body');
-      
-      // Position the terminal window higher on the screen
-      function centerWindow() {
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const terminalWidth = terminalWindow.offsetWidth;
-        const terminalHeight = terminalWindow.offsetHeight;
-        
-        const left = (windowWidth - terminalWidth) / 2;
-        const top = Math.max(40, (windowHeight - terminalHeight) / 7); // Position at 1/3 from top, minimum 40px
-        
-        terminalWindow.style.left = left + 'px';
-        terminalWindow.style.top = top + 'px';
-      }
-      
-      // Initial centering
-      centerWindow();
-      
-      // Re-center on window resize
-      window.addEventListener('resize', centerWindow);
-      
-      // Drag functionality
-      let isDragging = false;
-      let dragOffset = { x: 0, y: 0 };
-      
-      terminalHeader.addEventListener('mousedown', function(e) {
-        // Don't drag if clicking on traffic lights
-        if (e.target.classList.contains('traffic-light')) {
-          return;
-        }
-        
-        isDragging = true;
-        terminalWindow.classList.add('dragging');
-        
-        const rect = terminalWindow.getBoundingClientRect();
-        dragOffset.x = e.clientX - rect.left;
-        dragOffset.y = e.clientY - rect.top;
-        
-        e.preventDefault();
-      });
-      
-      document.addEventListener('mousemove', function(e) {
-        if (!isDragging) return;
-        
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const terminalWidth = terminalWindow.offsetWidth;
-        const terminalHeight = terminalWindow.offsetHeight;
-        
-        let newX = e.clientX - dragOffset.x;
-        let newY = e.clientY - dragOffset.y;
-        
-        // Constrain to window bounds
-        newX = Math.max(0, Math.min(newX, windowWidth - terminalWidth));
-        newY = Math.max(0, Math.min(newY, windowHeight - terminalHeight));
-        
-        terminalWindow.style.left = newX + 'px';
-        terminalWindow.style.top = newY + 'px';
-      });
-      
-      document.addEventListener('mouseup', function() {
-        if (isDragging) {
-          isDragging = false;
-          terminalWindow.classList.remove('dragging');
-        }
-      });
-      
-      // Touch support for mobile
-      terminalHeader.addEventListener('touchstart', function(e) {
-        if (e.target.classList.contains('traffic-light')) {
-          return;
-        }
-        
-        isDragging = true;
-        terminalWindow.classList.add('dragging');
-        
-        const rect = terminalWindow.getBoundingClientRect();
-        const touch = e.touches[0];
-        dragOffset.x = touch.clientX - rect.left;
-        dragOffset.y = touch.clientY - rect.top;
-        
-        e.preventDefault();
-      });
-      
-      document.addEventListener('touchmove', function(e) {
-        if (!isDragging) return;
-        
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        const terminalWidth = terminalWindow.offsetWidth;
-        const terminalHeight = terminalWindow.offsetHeight;
-        
-        const touch = e.touches[0];
-        let newX = touch.clientX - dragOffset.x;
-        let newY = touch.clientY - dragOffset.y;
-        
-        // Constrain to window bounds
-        newX = Math.max(0, Math.min(newX, windowWidth - terminalWidth));
-        newY = Math.max(0, Math.min(newY, windowHeight - terminalHeight));
-        
-        terminalWindow.style.left = newX + 'px';
-        terminalWindow.style.top = newY + 'px';
-        
-        e.preventDefault();
-      });
-      
-      document.addEventListener('touchend', function() {
-        if (isDragging) {
-          isDragging = false;
-          terminalWindow.classList.remove('dragging');
-        }
-      });
-      
-      // Add click to focus effect
-      terminalBody.addEventListener('click', function() {
-        const cursor = document.querySelector('.cursor');
-        cursor.style.animation = 'none';
-        setTimeout(() => {
-          cursor.style.animation = 'blink 1s infinite';
-        }, 100);
-      });
-      
-      // Traffic light interactions
-      document.querySelector('.traffic-light.red').addEventListener('click', function() {
-        window.close();
-      });
-      
-      document.querySelector('.traffic-light.yellow').addEventListener('click', function() {
-        terminalWindow.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          terminalWindow.style.transform = 'scale(1)';
-        }, 200);
-      });
-      
-      document.querySelector('.traffic-light.green').addEventListener('click', function() {
-        if (document.fullscreenElement) {
-          document.exitFullscreen();
-        } else {
-          document.documentElement.requestFullscreen();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
