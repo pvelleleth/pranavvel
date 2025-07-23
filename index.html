@@ -7,6 +7,38 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=SF+Mono:wght@400;500&display=swap');
     
+    :root {
+      /* Light theme colors */
+      --bg-color: #f0f0f0;
+      --text-color: #000;
+      --terminal-bg: #ffffff;
+      --terminal-body-bg: #fafafa;
+      --terminal-header-bg: #f6f6f6;
+      --terminal-border: #e0e0e0;
+      --text-secondary: #333;
+      --text-muted: #666;
+      --text-tertiary: #555;
+      --link-color: #007AFF;
+      --pattern-opacity: 0.02;
+      --pattern-bg-opacity: 0.3;
+    }
+    
+    [data-theme="dark"] {
+      /* Dark theme colors */
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --terminal-bg: #2d2d2d;
+      --terminal-body-bg: #1e1e1e;
+      --terminal-header-bg: #333333;
+      --terminal-border: #444444;
+      --text-secondary: #cccccc;
+      --text-muted: #999999;
+      --text-tertiary: #aaaaaa;
+      --link-color: #4A90E2;
+      --pattern-opacity: 0.05;
+      --pattern-bg-opacity: 0.1;
+    }
+    
     * {
       box-sizing: border-box;
     }
@@ -15,16 +47,17 @@
       margin: 0;
       padding: 0;
       font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
-      background: #f0f0f0;
-      color: #000;
+      background: var(--bg-color);
+      color: var(--text-color);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
-    /* Light theme background pattern */
+    /* Background pattern that adapts to theme */
     body::before {
       content: '';
       position: fixed;
@@ -33,16 +66,17 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, 0.3) 100%),
+        radial-gradient(ellipse at center, transparent 0%, rgba(255, 255, 255, var(--pattern-bg-opacity)) 100%),
         repeating-linear-gradient(
           0deg,
           transparent,
           transparent 2px,
-          rgba(0, 0, 0, 0.02) 2px,
-          rgba(0, 0, 0, 0.02) 4px
+          rgba(0, 0, 0, var(--pattern-opacity)) 2px,
+          rgba(0, 0, 0, var(--pattern-opacity)) 4px
         );
       pointer-events: none;
       z-index: 1;
+      transition: opacity 0.3s ease;
     }
     
     /* Terminal window */
