@@ -209,6 +209,25 @@
       color: #fff;
     }
     
+    /* ASCII Art styling */
+    .ascii-art {
+      margin: 8px 0;
+      text-align: center;
+    }
+    
+    .ascii-art pre {
+      font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+      font-size: 10px;
+      line-height: 1.1;
+      color: #8B4513;
+      margin: 0;
+      display: inline-block;
+      text-align: left;
+      background: transparent;
+      border: none;
+      padding: 0;
+    }
+    
     /* Cursor animation */
     .cursor {
       display: inline-block;
@@ -248,6 +267,11 @@
         font-size: 11px;
         padding: 2px 6px;
       }
+      
+      .ascii-art pre {
+        font-size: 8px;
+        line-height: 1.0;
+      }
     }
   </style>
 </head>
@@ -286,6 +310,31 @@
       <div class="output compact-output">
         <div class="project-line">• Built: <a href="https://jirachat.com" class="link">Jirachat.com</a> and <a href="https://curatepdf.com" class="link">CuratePDF.com</a></div>
         <div class="project-line">• Building: <a href="https://kollengo.com" class="link">Kollengo.com</a> - powered by CuratePDF's document engine</div>
+      </div>
+      
+      <div class="terminal-line">
+        <span class="prompt">%</span>
+        <span class="command">display_avatar</span>
+      </div>
+      <div class="output compact-output">
+        <div class="ascii-art">
+          <pre>
+    ████████
+  ██        ██
+ ██  ●    ●  ██
+██      ◡      ██
+██              ██
+ ██            ██
+  ██████████████
+      ██    ██
+      ██    ██
+    ████    ████
+   ██████  ██████
+  ████████████████
+ ████████████████
+██████████████████
+          </pre>
+        </div>
       </div>
       
       <div class="terminal-line">
