@@ -228,6 +228,30 @@
       padding: 0;
     }
     
+    .ascii-art .sky {
+      color: #87CEEB;
+    }
+    
+    .ascii-art .tree {
+      color: #228B22;
+    }
+    
+    .ascii-art .person {
+      color: #8B4513;
+    }
+    
+    .ascii-art .ground {
+      color: #8B7355;
+    }
+    
+    .ascii-art .blonde {
+      color: #FFD700;
+    }
+    
+    .ascii-art .friend {
+      color: #9A8B4F;
+    }
+    
     /* Cursor animation */
     .cursor {
       display: inline-block;
@@ -271,6 +295,15 @@
       .ascii-art pre {
         font-size: 8px;
         line-height: 1.0;
+      }
+      
+      .ascii-art .sky,
+      .ascii-art .tree,
+      .ascii-art .person,
+      .ascii-art .friend,
+      .ascii-art .ground,
+      .ascii-art .blonde {
+        /* Maintain colors on mobile */
       }
     }
   </style>
@@ -318,22 +351,55 @@
       </div>
       <div class="output compact-output">
         <div class="ascii-art">
-          <pre>
-    ████████
-  ██        ██
- ██  ●    ●  ██
-██      ◡      ██
-██              ██
- ██            ██
-  ██████████████
-      ██    ██
-      ██    ██
-    ████    ████
-   ██████  ██████
-  ████████████████
- ████████████████
-██████████████████
-          </pre>
+          <pre><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░</span><span class="tree">♠♠♠</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">♠♠♠</span><span class="sky">░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░</span><span class="tree">♠♠♠♠♠</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">♠♠♠♠♠</span><span class="sky">░░░░░░░░</span>
+<span class="sky">░░░░░░░░</span><span class="tree">♠♠♠♠♠♠♠</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">♠♠♠♠♠♠♠</span><span class="sky">░░░░░░░</span>
+<span class="sky">░░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░░░</span><span class="person">████████</span><span class="sky">░░░░░░░░</span><span class="friend">████████</span><span class="sky">░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░</span><span class="person">██        ██</span><span class="sky">░░░░░</span><span class="friend">██        ██</span><span class="sky">░░░░░</span><span class="tree">███</span><span class="sky">░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░</span><span class="person">██  ●    ●  ██</span><span class="sky">░░░</span><span class="friend">██  ●    ●  ██</span><span class="sky">░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░</span><span class="person">██      ◡      ██</span><span class="sky">░</span><span class="friend">██      ◡      ██</span><span class="sky">░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░</span><span class="person">██              ██</span><span class="friend">██              ██</span><span class="sky">░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░</span><span class="person">██            ██</span><span class="sky">░</span><span class="friend">██            ██</span><span class="sky">░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░</span><span class="person">██████████████</span><span class="sky">░░░</span><span class="friend">██████████████</span><span class="sky">░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░</span><span class="person">██    ██</span><span class="sky">░░░░░░░</span><span class="friend">██    ██</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░</span><span class="person">██    ██</span><span class="sky">░░░░░░░</span><span class="friend">██    ██</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="person">████    ████</span><span class="ground">▓▓</span><span class="friend">████    ████</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="person">██████  ██████</span><span class="ground">▓</span><span class="friend">██████  ██████</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="person">████████████████</span><span class="friend">████████████████</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="person">████████████████</span><span class="friend">████████████████</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="person">██████████████████</span><span class="friend">██████████████████</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span></pre>
+        </div>
+      </div>
+      
+      <div class="terminal-line">
+        <span class="prompt">%</span>
+        <span class="command">display_friend --blonde</span>
+      </div>
+      <div class="output compact-output">
+        <div class="ascii-art">
+          <pre><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░</span><span class="tree">♠♠♠</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">♠♠♠</span><span class="sky">░░░░░░</span>
+<span class="sky">░░░░</span><span class="tree">♠♠♠♠♠</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">♠♠♠♠♠</span><span class="sky">░░░░</span>
+<span class="sky">░░░</span><span class="tree">♠♠♠♠♠♠♠</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span><span class="tree">♠♠♠♠♠♠♠</span><span class="sky">░░░</span>
+<span class="sky">░░░░░</span><span class="tree">███</span><span class="sky">░░░░░░░░░░░</span><span class="blonde">▄▄▄▄▄▄▄▄</span><span class="sky">░░░░░░░░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░░░</span>
+<span class="sky">░░░░░</span><span class="tree">███</span><span class="sky">░░░░░░░░░</span><span class="blonde">▄▄          ▄▄</span><span class="sky">░░░░░░░░░░░░░░</span><span class="tree">███</span><span class="sky">░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄  ●    ●  ▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄      ◡      ▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄              ▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄            ▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄▄▄▄▄▄▄▄▄▄▄▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄    ▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="sky">░░░░░░░░░░░░░░░░░░░░░░░</span><span class="blonde">▄▄    ▄▄</span><span class="sky">░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="blonde">▄▄▄▄    ▄▄▄▄</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="blonde">▄▄▄▄▄▄  ▄▄▄▄▄▄</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="blonde">▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="blonde">▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span>
+<span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span><span class="blonde">▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄</span><span class="ground">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</span></pre>
         </div>
       </div>
       
