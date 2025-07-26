@@ -12,7 +12,7 @@
     
     body {
       margin: 0;
-      padding: 40px 20px;
+      padding: 20px;
       font-family: 'Times New Roman', Times, serif;
       background: #f8f8f8; /* Changed from #e0e0e0 to #f8f8f8 for a white-gray */
       color: #333333;
@@ -21,50 +21,55 @@
     }
     
     .container {
-      max-width: 800px;
+      max-width: 600px; /* Reduced from 800px */
       margin: 0 auto;
     }
     
     h1 {
       color: #000000;
-      font-size: 2.5rem;
+      font-size: 2.2rem; /* Reduced from 2.5rem */
       margin: 0 0 0.5rem 0;
       font-weight: normal;
     }
     
     .subtitle {
       color: #666666;
-      font-size: 1.2rem;
-      margin: 0 0 2rem 0;
+      font-size: 1.1rem; /* Reduced from 1.2rem */
+      margin: 0 0 1.5rem 0;
       font-style: italic;
     }
     
     .section {
-      margin: 2rem 0;
+      margin: 1.2rem 0; /* Reduced from 1.5rem */
     }
     
     .section-title {
       color: #000000;
-      font-size: 1.5rem;
+      font-size: 1.3rem; /* Reduced from 1.5rem */
       margin: 0 0 1rem 0;
       font-weight: bold;
     }
     
     .about-text {
       color: #333333;
-      font-size: 1.1rem;
-      margin: 0 0 1rem 0;
-      line-height: 1.7;
+      font-size: 1rem; /* Reduced from 1.1rem */
+      margin: 0 0 0.5rem 0;
+      line-height: 1.6; /* Reduced from 1.7 */
     }
     
     .projects {
       margin: 1rem 0;
     }
+
+    .projects ul {
+      margin: 0;
+      padding-left: 20px;
+    }
     
     .project-item {
       color: #333333;
-      margin: 0.75rem 0;
-      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      font-size: 1rem; /* Reduced from 1.1rem */
     }
     
     .link {
@@ -78,16 +83,16 @@
     }
     
     .social-links {
-      margin: 1.5rem 0;
+      margin: 1rem 0;
       display: flex;
-      gap: 2rem;
+      gap: 1.2rem; /* Reduced from 1.5rem */
       flex-wrap: wrap;
     }
     
     .social-link {
       color: #0066cc;
       text-decoration: none;
-      font-size: 1.5rem; /* Increase icon size */
+      font-size: 1.3rem; /* Reduced from 1.5rem */
       border-bottom: 1px solid transparent;
       transition: all 0.2s;
     }
@@ -99,29 +104,29 @@
     /* Mobile responsiveness */
     @media (max-width: 768px) {
       body {
-        padding: 20px 15px;
+        padding: 15px 10px;
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
       
       .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       
       .section-title {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
       
       .about-text,
       .project-item,
       .social-link {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
       
       .social-links {
-        gap: 1.5rem;
+        gap: 1rem;
       }
     }
   </style>
@@ -134,7 +139,7 @@
     <div class="section">
       <div class="section-title">About</div>
       <div class="about-text">I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland.</div>
-      <div class="about-text">Recently, I've been contracting software work for startups and small businesses and have been building software solutions to problems I have a vested interest in.<div>
+      <div class="about-text">I'm currently contracting software work for startups and SMBs and building software solutions to problems I have a vested interest in.</div>
     </div>
     
     <div class="section">
@@ -142,7 +147,7 @@
       <div class="projects">
         <ul>
           <li class="project-item"><a href="https://jirachat.com" class="link">Jirachat.com</a>: A chatbot for querying Jira.</li>
-          <li class="project-item"><a href="https://curatepdf.com" class="link">CuratePDF.com</a>: A tool to automate document workflows with a simple API and drag & drop editor.</li>
+          <li class="project-item"><a href="https://curatepdf.com" class="link">CuratePDF.com</a>: A tool to automate document workflows with a drag & drop editor and simple API.</li>
           <li class="project-item"><a href="https://kollengo.com" class="link">Kollengo.com</a>: <i>(In progress)</i> A contract engine that eliminates the bottleneck between Sales, Legal, and Digital.</li>
         </ul>
       </div>
@@ -154,7 +159,7 @@
         <a href="https://github.com/pvelleleth" class="social-link"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/pranav-velleleth-a899b6247/" class="social-link"><i class="fab fa-linkedin"></i></a>
         <a href="https://x.com/pranav_vell" class="social-link"><i class="fab fa-x-twitter"></i></a>
-        <a href="./thoughts.html" class="social-link"><i class="fas fa-blog"></i></a>
+        <a href="./thoughts.html" class="social-link"><i class="fas fa-brain"></i></a>
       </div>
     </div>
   </div>
