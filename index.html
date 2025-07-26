@@ -3,6 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The personal website of Pranav Velleleth, an AI engineer and student at the University of Maryland.">
+  <meta property="og:title" content="Pranav Velleleth - AI Engineer">
+  <meta property="og:description" content="The personal website of Pranav Velleleth, an AI engineer and student at the University of Maryland.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pranavvel.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@pranav_vell">
+  <meta name="twitter:title" content="Pranav Velleleth - AI Engineer">
+  <meta name="twitter:description" content="The personal website of Pranav Velleleth, an AI engineer and student at the University of Maryland.">
   <title>Pranav Velleleth</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> <!-- Add Font Awesome -->
   <style>
@@ -130,38 +139,60 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pranav Velleleth",
+      "url": "https://pranavvel.com",
+      "sameAs": [
+        "https://github.com/pvelleleth",
+        "https://www.linkedin.com/in/pranav-velleleth-a899b6247/",
+        "https://x.com/pranav_vell"
+      ],
+      "jobTitle": "AI Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "University of Maryland"
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="container">
-    <h1>Pranav Velleleth</h1>
-    <div class="subtitle">AI Engineer | I build great products</div>
+    <header>
+      <h1>Pranav Velleleth</h1>
+      <div class="subtitle">AI Engineer | I build great products</div>
+    </header>
     
-    <div class="section">
-      <div class="section-title">About</div>
-      <div class="about-text">I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland.</div>
-      <div class="about-text">I'm currently contracting software work for startups and SMBs and building software solutions to problems I have a vested interest in.</div>
-    </div>
+    <main>
+      <section class="section">
+        <h2 class="section-title">About</h2>
+        <div class="about-text">I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland.</div>
+        <div class="about-text">I'm currently contracting software work for startups and SMBs and building software solutions to problems I have a vested interest in.</div>
+      </section>
+      
+      <section class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects">
+          <ul>
+            <li class="project-item"><a href="https://jirachat.com" class="link">Jirachat.com</a>: A chatbot for querying Jira.</li>
+            <li class="project-item"><a href="https://curatepdf.com" class="link">CuratePDF.com</a>: A tool to automate document workflows with a drag & drop editor and simple API.</li>
+            <li class="project-item"><a href="https://kollengo.com" class="link">Kollengo.com</a>: <i>(In progress)</i> A contract engine that eliminates the bottleneck between Sales, Legal, and Digital.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
     
-    <div class="section">
-      <div class="section-title">Projects</div>
-      <div class="projects">
-        <ul>
-          <li class="project-item"><a href="https://jirachat.com" class="link">Jirachat.com</a>: A chatbot for querying Jira.</li>
-          <li class="project-item"><a href="https://curatepdf.com" class="link">CuratePDF.com</a>: A tool to automate document workflows with a drag & drop editor and simple API.</li>
-          <li class="project-item"><a href="https://kollengo.com" class="link">Kollengo.com</a>: <i>(In progress)</i> A contract engine that eliminates the bottleneck between Sales, Legal, and Digital.</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="section">
-      <div class="section-title">Links</div>
+    <footer class="section">
+      <h2 class="section-title">Links</h2>
       <div class="social-links">
-        <a href="https://github.com/pvelleleth" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/pranav-velleleth-a899b6247/" class="social-link"><i class="fab fa-linkedin"></i></a>
-        <a href="https://x.com/pranav_vell" class="social-link"><i class="fab fa-x-twitter"></i></a>
-        <a href="./thoughts.html" class="social-link"><i class="fas fa-brain"></i></a>
+        <a href="https://github.com/pvelleleth" class="social-link" aria-label="Github"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/pranav-velleleth-a899b6247/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://x.com/pranav_vell" class="social-link" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="./thoughts.html" class="social-link" aria-label="Thoughts"><i class="fas fa-brain"></i></a>
       </div>
-    </div>
+    </footer>
   </div>
 </body>
 </html>
