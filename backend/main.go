@@ -51,7 +51,7 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"message": "Email added successfully"})
 	})
 
-	r.Run(":8080")
+	r.Run(":10000")
 }
 
 func addEmailToSheet(email string) error {
