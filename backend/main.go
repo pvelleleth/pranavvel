@@ -51,7 +51,11 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"message": "Email added successfully"})
 	})
 
-	r.Run(":10000")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "10000"
+	}
+	r.Run(":" + port)
 }
 
 func addEmailToSheet(email string) error {
