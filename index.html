@@ -30,8 +30,52 @@
     }
     
     .container {
-      max-width: 600px; /* Reduced from 800px */
+      max-width: 600px;
       margin: 0 auto;
+      position: relative; /* For positioning the sidebar */
+    }
+    
+    .subscribe-sidebar {
+      position: absolute;
+      left: 100%;
+      top: 5.5rem; /* Aligns with the start of the 'About' section */
+      width: 240px;
+      margin-left: 2rem;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #f9f9f9;
+    }
+
+    .subscribe-sidebar .section-title {
+        font-size: 1.2rem;
+        margin-top: 0;
+    }
+    .subscribe-sidebar .about-text {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+    .subscribe-sidebar input {
+        padding: 8px;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+        margin-bottom: 0.5rem;
+    }
+    .subscribe-sidebar button {
+        padding: 9px 12px;
+        border-radius: 4px;
+        border: none;
+        background-color: #0066cc;
+        color: white;
+        cursor: pointer;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 0.9rem;
+        width: 100%;
     }
     
     h1 {
@@ -109,8 +153,19 @@
     .social-link:hover {
       border-bottom-color: #0066cc;
     }
+
+    footer.section {
+      clear: both;
+    }
     
     /* Mobile responsiveness */
+    @media (max-width: 960px) { /* Widened breakpoint to prevent overlap */
+      .subscribe-sidebar {
+          position: static;
+          width: 100%;
+          margin: 1.5rem 0 0 0;
+      }
+    }
     @media (max-width: 768px) {
       body {
         padding: 15px 10px;
@@ -166,13 +221,22 @@
     </header>
     
     <main>
+      <aside class="subscribe-sidebar section">
+          <h2 class="section-title">Updates</h2>
+          <div class="about-text">Subscribe for life and business updates. No spam, ever.</div>
+          <form id="subscribe-form">
+            <input type="email" id="email-input" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <div id="response-message" style="margin-top: 10px; font-size: 0.9rem;"></div>
+      </aside>
       <section class="section">
         <h2 class="section-title">About</h2>
         <div class="about-text">I'm an AI engineer with experience at a VC-backed chip startup, currently studying Computer Engineering at the University of Maryland.</div>
         <div class="about-text">I'm currently contracting software work for startups and SMBs and building software solutions to problems I have a vested interest in.</div>
         <div class="about-text">I occasionally write down my <a href="./thoughts.html" class="link">thoughts</a> here.</div>
       </section>
-      
+          
       <section class="section">
         <h2 class="section-title">Projects</h2>
         <div class="projects">
@@ -185,7 +249,7 @@
         </div>
       </section>
     </main>
-    
+        
     <footer class="section">
       <h2 class="section-title">Links</h2>
       <div class="social-links">
@@ -195,5 +259,38 @@
       </div>
     </footer>
   </div>
+  <script>
+    document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const emailInput = document.getElementById('email-input');
+      const email = emailInput.value;
+      const responseMessage = document.getElementById('response-message');
+      
+      responseMessage.textContent = 'Successfully subscribed!';
+      responseMessage.style.color = 'green';
+      emailInput.value = '';
+
+      fetch('https://pranavvel.onrender.com/add-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email }),
+      })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(err => { throw err; });
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Subscription response:', data);
+      })
+      .catch((error) => {
+        console.error('Subscription error:', error);
+      });
+    });
+  </script>
 </body>
 </html>
